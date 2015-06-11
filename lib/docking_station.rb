@@ -11,7 +11,7 @@ class DockingStation
   end
 
   def release_bike
-    fail 'No bikes available' if empty?
+    fail 'No bikes available' if working_bikes.empty?
     @bikes.pop
   end
 
@@ -38,6 +38,11 @@ class DockingStation
   def empty?
     bikes.empty?
   end
+
+  def working_bikes
+    bikes.reject {|bike| bike.broken?}
+  end
+
 
 
 end

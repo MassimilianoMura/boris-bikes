@@ -1,4 +1,4 @@
-class Bike 
+class Bike
 
 def initialize
   @working=true
@@ -7,7 +7,7 @@ end
 def broken?
 	!@working
 end
-  
+
 def working?
   @working
 end

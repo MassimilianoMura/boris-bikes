@@ -1,4 +1,5 @@
 require_relative 'bike'
+require_relative 'van'
 
 class DockingStation
   DEFAULT_CAPACITY = 20
@@ -19,6 +20,11 @@ class DockingStation
   def dock bike
   	fail 'Docking station full' if full?
     @bikes << bike
+  end
+
+  def release_broken_bikes
+    bb= bikes.select { |bike| bike.broken? }.pop
+    @bikes.delete(bb)
   end
 
   # def increase_capacity more_bikes
